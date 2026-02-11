@@ -27,7 +27,7 @@ Options:
 Example:
 
 ```bash
-./meow notes.txt
+./build/meow notes.txt
 ```
 
 ## Build
@@ -39,13 +39,30 @@ cmake --build build
 
 ## Install
 
-This project installs the binary to `/usr/bin`.
+By default, this project installs the binary to `/usr/local/bin`.
 
 ```bash
 sudo cmake --install build
 ```
 
 After installation:
+
+```bash
+meow notes.txt
+```
+
+## Install with Homebrew (local formula)
+
+Homebrew requires formulas to be installed from a tap.
+From the project root:
+
+```bash
+brew tap tgiachi/meow /Users/squid/projects/meow
+cp Formula/meow.rb "$(brew --repository)/Library/Taps/tgiachi/homebrew-meow/Formula/meow.rb"
+brew install --HEAD --build-from-source tgiachi/meow/meow
+```
+
+Then run:
 
 ```bash
 meow notes.txt
